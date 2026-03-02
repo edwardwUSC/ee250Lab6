@@ -1,3 +1,9 @@
+#Team Members
+#Lindsay Best
+#Edward Whitesel
+
+
+
 import sys
 sys.path.append('~/Dexter/GrovePi/Software/Python')
 import time
