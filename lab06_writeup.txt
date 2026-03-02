@@ -1,0 +1,38 @@
+Lab 06 Writeup
+
+Team Members
+Lindsay Best
+Edward Whitesel
+
+Reflection Questions: 
+
+4.1: Linux shell comands to add my_second_file.py to github.com
+
+git clone git@github.com:my-name/my-imaginary-repo.git
+cd my-imaginary-repo
+touch my_second_file.py
+echo 'print("Hello World")' > my_second_file.py
+git add my_second_file.py
+git commit -m "Add my_second_file.py with Hello World"
+git push origin main  
+
+4.2: For this lab the workflow was to write the code on the host computer and push to the rpi through secure copy. Any of the on the fly changes
+where made through vi on the RPI  To be more efficent in the next lab we would get more comfortable with the Git push to update faster and 
+more efficently.
+
+4.3: The reason while there is still a delay is due to the function ultrasonicRead() in the grovepi library.
+This function has a command to sleep for 60 ms before it reads the result back which is what is causing the constant
+delay, even though the sleep for 200ms is taken out of the starter code. Raspberry Pi uses the I2C protocol to talk
+with the ATmega328p on the GrovePi. I2C is an inter-integrated circuit, and uses a two-wire communication protocol
+used for communication between microcontrollers (rpi) and peripheral devices (grovepi).
+
+4.4: The GrovePi library reports the integers between 0-1023 due to having a 10-bit analog to digital converter. The Grove 
+Rotart Angle sensor outputs a voltage between 0 and 5V and the GrovePi reports values between 0-1023 (10 bit ADC). The conversion 
+works by dividing the sensor voltage by the reference voltage and multipling by 1023. The Rpi cannot do this as it does not 
+have an analog to digital converter built in and only reads voltage signals as high and low. 
+
+4.5: If my LCD RGB Backlight screen was not display text with no errors in the code there are a few ways that I would debug it. 
+If the screen is not lit I would change the LCD or cable bus connecting the LCD and Grove. If the screen is lit first 
+I would confirm the LCD is being detected through I2C throught the command line 'i2cdetect -y 1'. If it does not show that it is connected
+it could be an issue with the wiring, I2C bus, or if I2C is disabled. If that is working fine and there are still issues
+I would then verify that I am actually writing to the LCD and that I am intializing the LCD correctly. 
