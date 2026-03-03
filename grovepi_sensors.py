@@ -34,7 +34,7 @@ while True:
     if(distance < threshhold):
          setRGB(255,0,0)#red
          #setText_norefresh for text ouput without clearing screen
-         setText_norefresh("OBJ PRESS\n"+str(distance)+" cm")
+         setText_norefresh(str(threshhold)+" cm "+"OBJ PRESS\n"+str(distance)+" cm")
     else:
          setRGB(0,255,0)#green
          setText_norefresh(str(threshhold)+" cm\n"+str(distance)+" cm")
